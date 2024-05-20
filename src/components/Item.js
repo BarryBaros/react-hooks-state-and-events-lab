@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Item({ name, category }) {
+const []
+
   return (
     <li className="">
       <span>{name}</span>

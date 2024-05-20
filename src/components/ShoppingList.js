@@ -7,14 +7,15 @@ function ShoppingList({ items }) {
 
   // Create event handler for the filter select element
   const handleFilterChange = (event) => {
-    selectedCategory(event.target.value);
+    setselectedCategory(event.target.value);
   };
 
   // Filter the items based on the selected category
-  const filteredItems = items.filter((item) => {
+  const itemsToDisplay = items.filter((item) => {
     if (selectedCategory === "All") return true;
-    return item.category === setselectedCategory;
+    return item.category === selectedCategory;
   });
+
   return (
     <div className="ShoppingList">
       <div className="Filter">
@@ -26,7 +27,7 @@ function ShoppingList({ items }) {
         </select>
       </div>
       <ul className="Items">
-        {filteredItems.map((item) => (
+        {itemsToDisplay.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
         ))}
       </ul>

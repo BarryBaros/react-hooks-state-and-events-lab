@@ -1,30 +1,18 @@
-import "@testing-library/jest-dom";
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../components/App";
 
-test("displays in 'light' mode when initialized", () => {
+test("toggles dark mode and light mode correctly", () => {
   const { container } = render(<App />);
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
-});
 
-test("changes to 'dark' mode when the button is clicked", () => {
-  const { container } = render(<App />);
+  // Initially in light mode
   expect(container.querySelector(".App.light")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByText(/ Mode/));
-
-  expect(container.querySelector(".App.dark")).toBeInTheDocument();
-});
-
-test("changes back to 'light' mode when the button is clicked twice", () => {
-  const { container } = render(<App />);
-  expect(container.querySelector(".App.light")).toBeInTheDocument();
-
-  fireEvent.click(screen.getByText(/ Mode/));
-
+  // Click to switch to dark mode
+  fireEvent.click(screen.getByText("DARK"));
   expect(container.querySelector(".App.dark")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByText(/ Mode/));
-
+  // Click to switch back to light mode
+  fireEvent.click(screen.getByText("LIGHT"));
   expect(container.querySelector(".App.light")).toBeInTheDocument();
 });

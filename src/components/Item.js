@@ -6,14 +6,16 @@ function Item({ name, category }) {
 
   // Event handler to toggle the cart status
   const handleCartToggle = () => {
-  setInCart((inCart) => !inCart);
-}
+    setInCart((inCart) => !inCart);
+  };
 
   return (
     <li className={inCart ? "in-cart" : ""}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add" onClick={handleCartToggle} > {inCart ? "Remove From Cart" : "Add to Cart"} </button>
+      <button className={inCart ? "remove" : "add"} onClick={handleCartToggle}>
+        {inCart ? "Remove From Cart" : "Add to Cart"}{" "}
+      </button>
     </li>
   );
 }

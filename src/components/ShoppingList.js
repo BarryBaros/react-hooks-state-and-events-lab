@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import Item from "./Item";
 
 function ShoppingList({ items }) {
-const [category, sele]
+  // Create a state variable for the selected category
+  const [selectedCategory, selectedCategory] = useState("All");
 
   return (
     <div className="ShoppingList">

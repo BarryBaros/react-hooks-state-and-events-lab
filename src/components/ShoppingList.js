@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Item from "./Item";
 
 function ShoppingList({ items }) {
+const [category, sele]
+
   return (
     <div className="ShoppingList">
       <div className="Filter">
